@@ -1,9 +1,10 @@
-﻿using Data.Interfaces;
+﻿using Business.Interfaces;
+using Data.Interfaces;
 using System.Linq.Expressions;
 
 namespace Business.Services;
 
-public abstract class BaseService<TEntity> where TEntity : class
+public abstract class BaseService<TEntity> : IBaseService<TEntity> where TEntity : class
 {
     private readonly IBaseRepository<TEntity> _repository;
 
@@ -14,12 +15,12 @@ public abstract class BaseService<TEntity> where TEntity : class
 
     public virtual async Task<TEntity> CreateAsync(TEntity entity)
     {
-      return await _repository.CreateAsync(entity);
+        return await _repository.CreateAsync(entity);
     }
 
     public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-       return await _repository.GetAllAsync();
+        return await _repository.GetAllAsync();
     }
 
     public virtual async Task<TEntity> GetAsync(Expression<Func<TEntity, bool>> expression)

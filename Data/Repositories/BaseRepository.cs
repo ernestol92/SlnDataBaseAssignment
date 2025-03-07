@@ -9,8 +9,8 @@ namespace Data.Repositories;
 
 public abstract class BaseRepository<TEntity>(MyDBContext context) : IBaseRepository<TEntity> where TEntity : class
 {
-    private readonly MyDBContext _context = context;
-    private readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
+    protected readonly MyDBContext _context = context;
+    protected readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
 
     public async Task<TEntity> CreateAsync(TEntity entity)
     {

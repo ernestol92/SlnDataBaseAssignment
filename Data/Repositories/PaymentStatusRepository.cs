@@ -5,6 +5,5 @@ namespace Data.Repositories
 {
     public class PaymentStatusRepository(MyDBContext context) : BaseRepository<PaymentStatusEntity>(context), IPaymentStatusRepository
     {
-        private readonly MyDBContext _context = context;
     }
 }

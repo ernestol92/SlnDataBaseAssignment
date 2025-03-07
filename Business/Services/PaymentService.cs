@@ -1,12 +1,12 @@
-﻿using Data.Entities;
+﻿using Business.Interfaces;
+using Data.Entities;
 using Data.Interfaces;
-using System.Linq.Expressions;
 
 namespace Business.Services;
 
-public class PaymentService : BaseService<PaymentEntity>
+public class PaymentService : BaseService<PaymentEntity>, IPaymentService
 {
-    PaymentService(IBaseRepository<PaymentEntity> repository) : base(repository)
+    public PaymentService(IBaseRepository<PaymentEntity> repository) : base(repository)
     {
     }
 }

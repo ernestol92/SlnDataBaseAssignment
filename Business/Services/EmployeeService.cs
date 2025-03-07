@@ -1,12 +1,13 @@
-﻿using Data.Entities;
+﻿using Business.Interfaces;
+using Data.Entities;
 using Data.Interfaces;
 using System.Linq.Expressions;
 
 namespace Business.Services
 {
-    public class EmployeeService : BaseService<EmployeeEntity>
+    public class EmployeeService : BaseService<EmployeeEntity>, IEmployeeService
     {
-        EmployeeService(IBaseRepository<EmployeeEntity> repository) : base(repository)
+        public EmployeeService(IBaseRepository<EmployeeEntity> repository) : base(repository)
         {
         }
         

@@ -81,7 +81,7 @@ namespace Data.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("EmployeeEntity");
+                    b.ToTable("Employees");
                 });
 
             modelBuilder.Entity("Data.Entities.PaymentEntity", b =>
@@ -109,7 +109,7 @@ namespace Data.Migrations
 
                     b.HasIndex("PaymentStatusId");
 
-                    b.ToTable("PaymentEntity");
+                    b.ToTable("Payments");
                 });
 
             modelBuilder.Entity("Data.Entities.PaymentStatusEntity", b =>
@@ -126,7 +126,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PaymentStatusEntity");
+                    b.ToTable("PaymentStatus");
                 });
 
             modelBuilder.Entity("Data.Entities.ProjectEntity", b =>
@@ -192,7 +192,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("RoleEntity");
+                    b.ToTable("Role");
                 });
 
             modelBuilder.Entity("Data.Entities.ServiceEntity", b =>
@@ -212,7 +212,7 @@ namespace Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ServiceEntity");
+                    b.ToTable("Services");
                 });
 
             modelBuilder.Entity("Data.Entities.StatusEntity", b =>

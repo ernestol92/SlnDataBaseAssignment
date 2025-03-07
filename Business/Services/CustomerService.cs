@@ -1,11 +1,11 @@
-﻿using Data.Entities;
+﻿using Business.Interfaces;
+using Data.Entities;
 using Data.Interfaces;
-using System.Linq.Expressions;
 
 
 namespace Business.Services;
 
-public class CustomerService : BaseService<CustomerEntity>
+public class CustomerService : BaseService<CustomerEntity>, ICustomerService
 {
     public CustomerService(IBaseRepository<CustomerEntity> repository) : base(repository)
     {

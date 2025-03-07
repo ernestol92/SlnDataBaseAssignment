@@ -1,12 +1,13 @@
 ﻿using Data.Entities;
 using Data.Interfaces;
-using System.Linq.Expressions;
+using Business.Interfaces;
 
 namespace Business.Services;
 
-public class PaymentStatusService : BaseService<PaymentStatusEntity>
+public class PaymentStatusService : BaseService<PaymentStatusEntity>, IPaymentStatusService
+
 {
-    PaymentStatusService(IBaseRepository<PaymentStatusEntity> repository) : base(repository)
+    public PaymentStatusService(IBaseRepository<PaymentStatusEntity> repository) : base(repository)
     {
     }
 }

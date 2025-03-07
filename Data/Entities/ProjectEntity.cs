@@ -1,13 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Data.Interfaces;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Data.Entities;
 
-public class ProjectEntity
+public class ProjectEntity : IEntity
 {
     [Key, DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int Id { get; set; }
+    public int Id { get; private set; }
 
 
     [MaxLength(100)]

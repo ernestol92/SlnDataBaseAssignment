@@ -1,12 +1,13 @@
-﻿using Data.Entities;
+﻿using Business.Interfaces;
+using Data.Entities;
 using Data.Interfaces;
 using System.Linq.Expressions;
 
 namespace Business.Services;
 
-public class StatusService : BaseService<StatusEntity>
+public class StatusService : BaseService<StatusEntity>, IStatusService
 {
-    StatusService(IBaseRepository<StatusEntity> repository) : base(repository)
+    public StatusService(IBaseRepository<StatusEntity> repository) : base(repository)
     {
     }
 }

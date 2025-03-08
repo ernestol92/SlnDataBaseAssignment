@@ -16,14 +16,14 @@ public class ProjectController : BaseController<ProjectEntity>
         _projectService = projectService;
     }
 
-    [HttpGet]
+    [HttpGet("all")]
     public async Task<ActionResult<IEnumerable<ProjectDTO>>> GetAllProjects()
     {
         var projects = await _projectService.GetAllProjectsDTOAsync();
         return Ok(projects);
     }
 
-    [HttpGet("{id}")]
+    [HttpGet("{idProject}")]
     public async Task<ActionResult<ProjectDTO>> GetProject(int id)
     {
         var project = await _projectService.GetProjectDTOAsync(id);

@@ -7,10 +7,16 @@ using System.Linq.Expressions;
 
 namespace Data.Repositories;
 
-public abstract class BaseRepository<TEntity>(MyDBContext context) : IBaseRepository<TEntity> where TEntity : class
+public abstract class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : class
 {
-    protected readonly MyDBContext _context = context;
-    protected readonly DbSet<TEntity> _dbSet = context.Set<TEntity>();
+    protected readonly MyDBContext _context;
+    protected readonly DbSet<TEntity> _dbSet;
+
+    public BaseRepository(MyDBContext context)
+    {
+        _context = context;
+        _dbSet = context.Set<TEntity>();
+    }
 
     public async Task<TEntity> CreateAsync(TEntity entity)
     {
@@ -29,7 +35,7 @@ public abstract class BaseRepository<TEntity>(MyDBContext context) : IBaseReposi
         }
     }
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync()
+    public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
     {
         return await _dbSet.ToListAsync();
     }
